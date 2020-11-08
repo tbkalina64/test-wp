@@ -17,6 +17,35 @@ if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
 	return;
 }
 
+use Carbon_Fields\Container;
+use Carbon_Fields\Field;
+
+add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' ); 
+function crb_attach_theme_options() {
+	Container::make( 'theme_options', __( 'Zapier Forms', 'crb' ) )
+		->add_fields( array(
+			Field::make( 'text', 'crb_name', 'Name' ),
+			Field::make( 'text', 'crb_placeholder', 'Placeholder' ),
+		) )
+		->add_tab( __('Email'), array(
+			Field::make( 'text', 'crb_email', 'Email' )
+		) )
+		->add_tab( __('Phone Number'), array(
+			Field::make( 'text', 'crb_phone', 'Phone Number' )
+		) )
+		->add_tab( __('Hook zapier'), array(
+			Field::make( 'text', 'crb_url', 'Zapier url' )
+		) );
+		
+}
+
+add_action( 'after_setup_theme', 'crb_load' );
+function crb_load() {
+	require_once( 'vendor/autoload.php' );
+	\Carbon_Fields\Carbon_Fields::boot();
+}
+
+
 /**
  * Sets up theme defaults and registers support for various WordPress features.
  *
@@ -267,7 +296,7 @@ function twentyseventeen_content_width() {
 	}
 
 	/**
-	 * Filter Twenty Seventeen content width of the theme.
+	 * Filters Twenty Seventeen content width of the theme.
 	 *
 	 * @since Twenty Seventeen 1.0
 	 *
@@ -544,7 +573,7 @@ function twentyseventeen_content_image_sizes_attr( $sizes, $size ) {
 add_filter( 'wp_calculate_image_sizes', 'twentyseventeen_content_image_sizes_attr', 10, 2 );
 
 /**
- * Filter the `sizes` value in the header image markup.
+ * Filters the `sizes` value in the header image markup.
  *
  * @since Twenty Seventeen 1.0
  *

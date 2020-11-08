@@ -1,5 +1,3 @@
-<?php require_once(__DIR__ . "/wp-domains.php");
-
 <?php
 /**
  * The base configuration for WordPress
