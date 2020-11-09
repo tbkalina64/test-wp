@@ -5,11 +5,11 @@
 # Сделанные вручную изменения между этими маркерами будут перезаписаны.
 <IfModule mod_rewrite.c>
 RewriteEngine On
-RewriteBase /mySite/
+RewriteBase /test-wp/
 RewriteRule ^index\.php$ - [L]
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /mySite/index.php [L]
+RewriteRule . /test-wp/index.php [L]
 </IfModule>
 
 # END WordPress
