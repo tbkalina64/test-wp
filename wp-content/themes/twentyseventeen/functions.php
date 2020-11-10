@@ -17,27 +17,27 @@ if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
 	return;
 }
 
-use Carbon_Fields\Container;
-use Carbon_Fields\Field;
+// use Carbon_Fields\Container;
+// use Carbon_Fields\Field;
 // #1
-add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' ); 
-function crb_attach_theme_options() {
-	Container::make( 'theme_options', __( 'Zapier Forms', 'crb' ) )
-		->add_fields( array(
-			Field::make( 'text', 'crb_name', 'Name' ),
-			Field::make( 'text', 'crb_placeholder', 'Placeholder' ),
-		) )
-		->add_tab( __('Email'), array(
-			Field::make( 'text', 'crb_email', 'Email' )
-		) )
-		->add_tab( __('Phone Number'), array(
-			Field::make( 'text', 'crb_phone', 'Phone Number' )
-		) )
-		->add_tab( __('Hook zapier'), array(
-			Field::make( 'text', 'crb_url', 'Zapier url' )
-		) );
+// add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' ); 
+// function crb_attach_theme_options() {
+// 	Container::make( 'theme_options', __( 'Zapier Forms', 'crb' ) )
+// 		->add_fields( array(
+// 			Field::make( 'text', 'crb_name', 'Name' ),
+// 			Field::make( 'text', 'crb_placeholder', 'Placeholder' ),
+// 		) )
+// 		->add_tab( __('Email'), array(
+// 			Field::make( 'text', 'crb_email', 'Email' )
+// 		) )
+// 		->add_tab( __('Phone Number'), array(
+// 			Field::make( 'text', 'crb_phone', 'Phone Number' )
+// 		) )
+// 		->add_tab( __('Hook zapier'), array(
+// 			Field::make( 'text', 'crb_url', 'Zapier url' )
+// 		) );
 		
-}
+// }
 // #2
 // add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' ); 
 // function crb_attach_theme_options() {
@@ -65,12 +65,11 @@ function crb_attach_theme_options() {
 		
 // }
 
-
-add_action( 'after_setup_theme', 'crb_load' );
-function crb_load() {
-	require_once( 'vendor/autoload.php' );
-	\Carbon_Fields\Carbon_Fields::boot();
-}
+// add_action( 'after_setup_theme', 'crb_load' );
+// function crb_load() {
+// 	require_once( 'vendor/autoload.php' );
+// 	\Carbon_Fields\Carbon_Fields::boot();
+// }
 
 
 /**
