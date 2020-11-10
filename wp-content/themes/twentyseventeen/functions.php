@@ -19,7 +19,7 @@ if ( version_compare( $GLOBALS['wp_version'], '4.7-alpha', '<' ) ) {
 
 use Carbon_Fields\Container;
 use Carbon_Fields\Field;
-
+// #1
 add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' ); 
 function crb_attach_theme_options() {
 	Container::make( 'theme_options', __( 'Zapier Forms', 'crb' ) )
@@ -38,6 +38,33 @@ function crb_attach_theme_options() {
 		) );
 		
 }
+// #2
+// add_action( 'carbon_fields_register_fields', 'crb_attach_theme_options' ); 
+// function crb_attach_theme_options() {
+// 	Container::make( 'post_meta', __( 'Zapier Forms', 'crb' ) )
+// 		->add_fields( array(
+// 			Field::make( "select", "type", "Select type" )
+// 				  ->add_options( array(
+// 					  'email'  => 'email',
+// 					  'text'  => 'text',
+// 					  'number' => 'number',
+// 				  ) )
+
+			
+// 		) )
+// 		->add_tab( __('Name'), array(
+// 			Field::make( 'text', 'crb_name', 'Name' )
+// 		) )
+// 		->add_tab( __('Placeholder'), array(
+// 			Field::make( 'text', 'crb_placeholder', 'Placeholder' )
+// 		) )
+// 		->add_tab( __('Hook zapier'), array(
+// 			Field::make( 'file', 'crb_url', 'Zapier url' )
+// 			->set_value_type('url')
+// 		) );
+		
+// }
+
 
 add_action( 'after_setup_theme', 'crb_load' );
 function crb_load() {
